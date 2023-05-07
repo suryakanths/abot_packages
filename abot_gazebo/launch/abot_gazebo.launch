@@ -11,12 +11,11 @@
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
   </include>  
-<param name="tf_prefix" value="robot" />
+ <param name="tf_prefix" value="robot" />
 
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
-  <node type="rviz" name="rviz" pkg="rviz" />
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find abot_description)/urdf/abot.urdf.xacro" />
 
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model abot_burger -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
